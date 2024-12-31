@@ -18,6 +18,9 @@
 
 #my own solution using python3:
 
+
+#start at the 3rd element and keep comparing the last two elements to see if they are in order or not - if they are, then add them
+
 class Solution:
     def findOcurrences(self, text: str, first: str, second: str) -> List[str]:
         h = text.split(" ")
