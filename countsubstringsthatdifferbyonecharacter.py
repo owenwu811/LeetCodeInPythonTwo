@@ -30,6 +30,8 @@
 
 #my own solution using python3:
 
+#you simply brute force to get all substrings from both s and t, and then do a same length comparison of differing characters - if they equal 1, then you can increment the res. You don't even have to store it in a list or a set to get result.
+
 class Solution:
     def countSubstrings(self, s: str, t: str) -> int:
         sbaby = []
