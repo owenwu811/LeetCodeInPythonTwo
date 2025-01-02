@@ -33,6 +33,28 @@ class NumMatrix:
         return res
 
 
+#another easy solution of mine to change it up:
+
+class NumMatrix:
+
+    def __init__(self, matrix: List[List[int]]):
+        self.mat = matrix
+
+    def update(self, row: int, col: int, val: int) -> None:
+        self.mat[row][col] = val
+
+    def sumRegion(self, row1: int, col1: int, row2: int, col2: int) -> int:
+        res = 0
+        rows = []
+        for i in range(row1, row2 + 1):
+            rows.append(self.mat[i])
+
+        for r in rows:
+            new = r[col1: col2 + 1]
+            res += sum(new)
+        return res
+
+
 
 # Your NumMatrix object will be instantiated and called as such:
 # obj = NumMatrix(matrix)
