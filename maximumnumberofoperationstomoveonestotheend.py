@@ -28,3 +28,18 @@ class Solution:
                 ans += cnt    
             print(cnt)
         return ans
+
+
+#1/21/25 refresher:
+
+class Solution:
+    def maxOperations(self, s: str) -> int:
+        ans = 0
+        res = 0
+        for i in range(len(s) -1, 0, -1):
+            if s[i] == "0" and s[i - 1] == "1":
+                ans += 1
+                res += ans 
+            elif s[i] == "1" and s[i - 1] == "1":
+                res += ans
+        return res
