@@ -45,3 +45,28 @@ class RangeFreqQuery:
 # Your RangeFreqQuery object will be instantiated and called as such:
 # obj = RangeFreqQuery(arr)
 # param_1 = obj.query(left,right,value)
+
+
+#1/23/25 review:
+
+class RangeFreqQuery:
+
+    def __init__(self, arr: List[int]):
+        self.d = defaultdict(list)
+        for i, a in enumerate(arr):
+            self.d[a].append(i)
+
+        
+
+    def query(self, left: int, right: int, value: int) -> int:
+        if value not in self.d:
+            return 0
+        leftside = bisect_left(self.d[value], left)
+        rightside = bisect_right(self.d[value], right)
+        return rightside - leftside
+        
+
+
+# Your RangeFreqQuery object will be instantiated and called as such:
+# obj = RangeFreqQuery(arr)
+# param_1 = obj.query(left,right,value)
