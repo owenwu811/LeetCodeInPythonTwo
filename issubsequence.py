@@ -21,3 +21,17 @@ class Solution:
                 res += 1
             two += 1
         return res == len(s)
+
+
+#1/23/25 review:
+
+class Solution:
+    def isSubsequence(self, s: str, t: str) -> bool:
+        l, r = 0, 0
+        res = 0
+        while l < len(s) and r < len(t):
+            if s[l] == t[r]:
+                l += 1
+                res += 1
+            r += 1
+        return res == len(s)
