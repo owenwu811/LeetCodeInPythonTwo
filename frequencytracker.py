@@ -12,6 +12,40 @@
 #bool hasFrequency(int frequency): Returns true if there is a number in the data structure that occurs frequency number of times, otherwise, it returns false.
 
 
+
+#my own solution using python3 on 1/24/25:
+
+class FrequencyTracker:
+
+    def __init__(self):
+        self.d = defaultdict(int)
+        self.nd = defaultdict(int)
+        
+
+    def add(self, number: int) -> None:
+        if self.d[number] in self.nd:
+            self.nd[self.d[number]] -= 1
+            if self.nd[self.d[number]] <= 0:
+                del self.nd[self.d[number]]
+        self.d[number] += 1
+        self.nd[self.d[number]] += 1
+        
+    def deleteOne(self, number: int) -> None:
+        if number in self.d:
+            self.nd[self.d[number]] -= 1
+            if self.nd[self.d[number]] <= 0:
+                del self.nd[self.d[number]]
+            self.d[number] -= 1
+            self.nd[self.d[number]] += 1
+            if self.d[number] == 0:
+                if self.nd[self.d[number]] == 0:
+                    del self.nd[self.d[number]]
+                del self.d[number] 
+
+    def hasFrequency(self, frequency: int) -> bool:
+        return frequency in self.nd.keys()
+
+
 #my own solution that got TLE 1115/1118:
 
 class FrequencyTracker:
