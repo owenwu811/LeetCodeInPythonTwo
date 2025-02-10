@@ -27,3 +27,12 @@ class Solution:
         while left < right:
             right = right & (right - 1)
         return right
+
+
+#2/9/25 review (could not solve):
+
+class Solution:
+    def rangeBitwiseAnd(self, left: int, right: int) -> int:
+        while left < right:
+            right = right & (right - 1)
+        return right
