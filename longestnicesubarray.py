@@ -28,3 +28,20 @@ class Solution:
             print(r, l)
             res = max(res, r - l + 1)
         return res
+
+
+
+#2/9/25 review (could not solve):
+
+class Solution:
+    def longestNiceSubarray(self, nums: List[int]) -> int:
+        l = 0
+        cur = 0
+        res = 0
+        for r in range(len(nums)):
+            while cur & nums[r]:
+                cur = cur ^ nums[l]
+                l += 1
+            cur = cur | nums[r]
+            res = max(res, r - l + 1)
+        return res
