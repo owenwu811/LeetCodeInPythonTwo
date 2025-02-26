@@ -25,6 +25,38 @@
 #result[2] = |5-2| + |5-3| + |5-5| = 3 + 2 + 0 = 5.
 
 
+#my own solution using python3 on 2/26/25:
+
+#use binary search to find bigger half - cur * len of bigger half minus cur * len(smallerhalf) - sum of smaller half
+
+class Solution:
+    def getSumAbsoluteDifferences(self, nums: List[int]) -> List[int]:
+        s = sorted(nums)
+        p = list(itertools.accumulate(nums))
+        biggest = p[-1]
+        res = []
+        n = len(nums)
+        for i in range(len(nums)):
+            cur = nums[i]
+            now = 0
+            l = bisect_left(s, cur)
+            r = bisect_right(s, cur)
+            if l > 0:
+                low = p[l - 1]
+                high = cur * l
+                now += (high - low)
+            if r < n:
+                low = cur * (n - r)
+                if r <= 0:
+                    high = biggest
+                else:
+                    high = biggest - p[r - 1]
+                now += (high - low)
+            res.append(now)
+        return res
+
+
+
 #another dumb question that tests whether or not you can memorize tricks....
 
 
