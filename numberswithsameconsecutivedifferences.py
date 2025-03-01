@@ -22,27 +22,41 @@
 
 class Solution:
     def numsSameConsecDiff(self, n: int, k: int) -> List[int]:
-        ans = []
-        def dfs(cur):
+        res = []
+        def dfs(i, cur):
             if len(cur) == n:
                 print(cur.copy())
-                if int("".join(map(str, cur))) not in ans:
-                    ans.append(int("".join(map(str, cur))))
-                return 
+                if cur.copy() not in res:
+                    res.append(cur.copy())
+                #cur.clear()
+                return
             now = cur[-1]
-            if now + k <= 9:
-                cur.append(now + k)
-                dfs(cur)
-                cur.pop()
             
-            if now - k >= 0:
-                cur.append(now - k)
-                dfs(cur)
+
+            if now + k <= 9:
+                add = now + k
+                cur.append(add)
+                dfs(i + 1, cur)
                 cur.pop()
-
-
-
-
+                
+            if now - k >= 0:
+                minus = now - k
+                cur.append(minus)
+                dfs(i + 1, cur)
+                cur.pop()
+      
+        cur = []
         for i in range(1, 10):
-            dfs([i])
+            cur.clear()
+            cur.append(i)
+            dfs(i, cur)
+            
+        print(res)
+        ans = []
+        for r in res:
+            cur = ""
+            for a in r:
+                cur += str(a)
+            print(cur)
+            ans.append(int(cur))
         return ans
