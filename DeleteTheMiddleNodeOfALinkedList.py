@@ -18,6 +18,8 @@
 
 #my own solution using python3 on 3/13/25 (originally solved in July of 2024 but forgot to upload the file):
 
+#as always, turn the linked list into an integer array, manipulate the integer array, and then turn the integer array back into a linked list
+
 # Definition for singly-linked list.
 # class ListNode:
 #     def __init__(self, val=0, next=None):
