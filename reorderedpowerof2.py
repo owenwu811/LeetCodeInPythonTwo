@@ -14,7 +14,7 @@
 #Output: true
 
 
-#correct python3 solution after looking up how to check power of 2:
+#my own python3 solution after looking up how to check power of 2:
 
 class Solution:
     def reorderedPowerOf2(self, n: int) -> bool:
