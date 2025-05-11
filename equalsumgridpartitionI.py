@@ -1,6 +1,6 @@
 
 
-#100650 (may 10, 2025 contest) ama 3546
+#100650 (may 10, 2025 contest) aka 3546
 
 #medium
 
