@@ -1,4 +1,4 @@
-#Weekly Contest 463
+#Weekly Contest 463 Q2
 #medium
 
 #You are given an integer array nums of length n and a 2D integer array queries of size q, where queries[i] = [li, ri, ki, vi].
